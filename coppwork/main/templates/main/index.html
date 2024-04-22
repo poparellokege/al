@@ -1,0 +1,298 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+
+{% block content %}
+
+<div class="color-blue">
+    <div class="container p-5">
+        <div class="mb-3">
+            <sapn class="txt-white font-size-20">Что мы можем предложить</sapn>
+        </div>
+        <div class="row gx-5">
+            {% for el in vacancy %}
+                <div class="col-4">
+                    <div>
+                        <div class="color-blue p-3">
+                            <div class="">
+                                <img src="{% static 'main/img/jpg/slider-1.jpg' %}" alt="" class="card-img">
+                            </div>
+                            <div class="mt-3">
+                                <a href="{% url 'about-vacancy' el.id %}" class="txt-white-hover">{{el.position}}</a>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <a href="{% url 'about-vacancy' el.id %}"><img src="{% static 'main/img/svg/next-link.svg' %}" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="container color-white p-5">
+
+</div>
+<section class="home-slider owl-carousel">
+      <div class="slider-item" style="background-image:url('../../static/main/img/jpg/slider-2.jpg')">
+
+        <div class="container">
+          <div class="row slider-text align-items-center justify-content-center text-center">
+            <div class="col-md-7 col-sm-12 element-animate">
+              <h1>Создадим ваше будущее</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi unde impedit, necessitatibus, soluta sit quam minima expedita atque corrupti reiciendis.</p>
+              <p><a href="#" class="btn btn-primary">Напиши нам!</a></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="slider-item" style="background-image: url('../../static/main/img/jpg/slider-1.jpg');">
+        <div class="container">
+          <div class="row slider-text align-items-center">
+            <div class="col-md-8 col-sm-12 element-animate">
+              <h1>Надежная конструкция</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi unde impedit, necessitatibus, soluta sit quam minima expedita atque corrupti reiciendis.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="container cta-overlap">
+      <div class="text d-flex">
+        <h2 class="h3">Надежная конструкция</h2>
+        <div class="ml-auto btn-wrap">
+          <a href="get-quote.html" class="btn-cta btn btn-outline-white">Связаться с нами</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <div class="row justify-content-center mb-5 element-animate">
+          <div class="col-md-8 text-center">
+            <h2 class="text-uppercase heading border-bottom mb-4">Сервисы</h2>
+            <p class="mb-3 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi unde impedit, necessitatibus, soluta sit quam minima expedita atque corrupti reiciendis.</p>
+          </div>
+        </div>
+
+        <div class="row mb-5">
+
+          <div class="col-lg-4 col-md-6 col-12 mb-3 element-animate">
+            <div class="media d-block media-feature text-center">
+              <span class="flaticon-blueprint icon"></span>
+              <div class="media-body">
+                <h3 class="mt-0 text-black">Lorem </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p><a href="#" class="btn btn-outline-primary btn-sm">Читать дальше</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-12 mb-3 element-animate">
+            <div class="media d-block media-feature text-center">
+              <span class="flaticon-building-1 icon"></span>
+              <div class="media-body">
+                <h3 class="mt-0 text-black">Lorem</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p><a href="#" class="btn btn-outline-primary btn-sm">Читать дальше</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-12 mb-3 element-animate">
+            <div class="media d-block media-feature text-center">
+              <span class="flaticon-crane icon"></span>
+              <div class="media-body">
+                <h3 class="mt-0 text-black">Lorem</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p><a href="#" class="btn btn-outline-primary btn-sm">Читать дальше</a></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row justify-content-center element-animate">
+          <div class="col-md-4"><p><a href="services.html" class="btn btn-primary btn-block">Смотреть все</a></p></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section border-t">
+      <div class="container">
+        <div class="row justify-content-center mb-5 element-animate">
+          <div class="col-md-8 text-center">
+            <h2 class="text-uppercase heading border-bottom mb-4">lorem ipsum</h2>
+            <p class="mb-3 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi unde impedit, necessitatibus, soluta sit quam minima expedita atque corrupti reiciendis.</p>
+            <p><a href="works.html" class="btn btn-primary">Читать дальше</a></p>
+          </div>
+        </div>
+
+        <div class="row no-gutters">
+          <div class="col-md-4 element-animate">
+            <a href="works-single.html" class="link-thumbnail">
+              <h3>lorem ipsum</h3>
+              <span class="ion-plus icon"></span>
+              <img src="img/work_thumb_1.jpg" alt="Image placeholder" class="img-fluid">
+            </a>
+          </div>
+          <div class="col-md-4 element-animate">
+            <a href="works-single.html" class="link-thumbnail">
+              <h3>lorem ipsum</h3>
+              <span class="ion-plus icon"></span>
+              <img src="img/work_thumb_2.jpg" alt="Image placeholder" class="img-fluid">
+            </a>
+          </div>
+          <div class="col-md-4 element-animate">
+            <a href="works-single.html" class="link-thumbnail">
+              <h3>lorem ipsum</h3>
+              <span class="ion-plus icon"></span>
+              <img src="img/work_thumb_3.jpg" alt="Image placeholder" class="img-fluid">
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5 element-animate">
+          <div class="col-md-8 text-center mb-5">
+            <h2 class="text-uppercase heading border-bottom mb-4">Новости</h2>
+            <p class="mb-0 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi unde impedit, necessitatibus, soluta sit quam minima expedita atque corrupti reiciendis.</p>
+          </div>
+        </div>
+        <div class="row element-animate">
+          <div class="major-caousel js-carousel-1 owl-carousel">
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/work_thumb_1.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post"></span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Читать дальше</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 8</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/work_thumb_2.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post"></span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Читать дальше</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 2</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/work_thumb_3.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post"></span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Читать дальше</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 5</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/work_thumb_1.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post"></span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Читать дальше</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 7</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/work_thumb_2.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post"></span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Читать дальше</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 1</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/work_thumb_3.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post">December 2, 2017</span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Читать дальше</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 4</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/work_thumb_1.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post">December 2, 2017</span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Читать дальше</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 12</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="media d-block media-custom text-left">
+                <img src="img/work_thumb_2.jpg" alt="Image Placeholder" class="img-fluid">
+                <div class="media-body">
+                  <span class="meta-post">December 2, 2017</span>
+                  <h3 class="mt-0 text-black"><a href="#" class="text-black">Lorem ipsum dolor sit amet elit</a></h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  <p class="clearfix">
+                    <a href="#" class="float-left">Читать дальше</a>
+                    <a href="#" class="float-right meta-chat"><span class="ion-chatbubble"></span> 14</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

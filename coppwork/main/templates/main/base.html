@@ -1,0 +1,165 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'main/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/css.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div class="content">
+    <div class="main">
+
+<!--        <header class="color-blue fw-medium  pt-3 pb-3">-->
+<!--            <div class="container d-flex  justify-content-between p-0">-->
+<!--                <a href="{% url 'home' %}" class="txt-white-hover">-->
+<!--                    <div class="d-flex align-items-center">-->
+<!--                        <img class="header-logo" src="{% static 'main/img/png/header-logo.png' %}">-->
+<!--                        <p class="txt-white-hover m-0 ms-3  text-uppercase">Забайкальского <br>края</p>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--                <div class="d-flex align-items-center">-->
+<!--                    <a href="{% url 'vacancy' %}" class="me-3 txt-white">Вакансии</a>-->
+<!--                    <a href="{% url 'resume' %}" class="me-3 txt-white">Резюме</a>-->
+<!--                    {% if user.is_authenticated %}-->
+<!--                    {% if user.is_admin or user.is_superuser%}-->
+<!--                    <a href="" class="me-3 txt-white"> кабинет</a>-->
+<!--                    {% else %}-->
+<!--                    <a href="{% url 'profile' user.id %}" class="me-3 txt-white">Личный кабинет</a>-->
+<!--                    {% endif %}-->
+<!--                    <a href="{% url 'logout' %}" class="button txt-blue">Выйти</a>-->
+<!--                    {% else %}-->
+<!--                    <a href="{% url 'reg' %}" class="me-3 txt-white">Регистрация</a>-->
+<!--                    <a href="{% url 'log' %}" class="button txt-blue">Войти</a>-->
+<!--                    {% endif %}-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </header>-->
+
+
+        <header role="banner">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand" href="{% url 'home' %}">Альтаир</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05"
+                            aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarsExample05">
+                        <ul class="navbar-nav mr-auto pl-lg-5 pl-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{% url 'home' %}">Главная</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="{% url 'vacancy' %}" id="dropdown04"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Сервисы</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                                    <a class="dropdown-item" href="{% url 'vacancy' %}">Металлическая кровля</a>
+                                    <a class="dropdown-item" href="{% url 'vacancy' %}">Генеральный подряд</a>
+                                    <a class="dropdown-item" href="{% url 'vacancy' %}">Ремонт домов</a>
+                                    <a class="dropdown-item" href="{% url 'vacancy' %}">Рестоврация объектов</a>
+                                    <a class="dropdown-item" href="{% url 'vacancy' %}">Консультант по строительству</a>
+                                </div>
+
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="works.html">Работы</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="news.html">Новости</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'resume' %}">О нас</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Контакты</a>
+                            </li>
+                        </ul>
+                        {% if user.is_authenticated %}
+                        {% if user.is_admin or user.is_superuser%}
+                        <ul class="navbar-nav ml-auto cta-btn">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'profile' user.id %}">
+                                    Личный <br> кабинет
+                                </a>
+                            </li>
+                        </ul>
+                        {% else %}
+                        <ul class="navbar-nav ml-auto cta-btn">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'profile' user.id %}">
+                                    Личный <br> кабинет
+                                </a>
+                            </li>
+                        </ul>
+                        {% endif %}
+                        <a href="{% url 'logout' %}" class="navbar-nav  cta-btn nav-item nav-link ">Выйти</a>
+                        {% else %}
+                         <ul class="navbar-nav ml-auto reg">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'registration' %}">
+                                    Регистрация
+                                </a>
+                            </li>
+
+
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login' %}">
+                                    Войти
+                                </a>
+                            </li>
+                        </ul>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="p-0">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    <footer class="p-5 color-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <img src="{% static 'main/img/svg/footer-logo.png' %}" class="footer-logo" alt="">
+                </div>
+                <div class="col-4 d-flex flex-column align-items-center justify-content-between">
+                    {% if user.is_authenticated %}
+                    <a href="" class="txt-white-hover font-size-16">Личный кабинет</a>
+                    {% else %}
+                    <a href="{% url 'reg" class="txt-white-hover font-size-16">Регистрация</a>
+                    <a href="{% url 'log' %}" class="txt-white-hover font-size-16">Войти</a>
+                    {% endif %}
+                    <a href="{% url 'vacancy' %}" class="txt-white-hover font-size-16">Вакансии</a>
+                    <a href="{% url 'resume' %}" class="txt-white-hover font-size-16">Резюме</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<script src="{% static 'main/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'main/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'main/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'main/js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'main/js/main.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+</html>

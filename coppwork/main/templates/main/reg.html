@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Регистрация
+{% endblock %}
+
+
+{% block content %}
+<div class="container color-white p-5 h-70-vh">
+    <div>
+        <div class="mb-5 pt-4">
+            <span class="txt-blue font-size-32">Выберите роль для регисттрации</span>
+        </div>
+        <div class="pt-3 row">
+            <div class="col-3">
+                <a href="{% url 'registration' %}" class="button mb-3">Пользователь</a>
+                <span class="txt-grey font-size-16">Поиск вакансий и добавление своего резюме</span>
+            </div>
+            <div class="col-3">
+                <a href="{% url 'registration-company' %}" class="button mb-3">Компания</a>
+                <span class="txt-grey font-size-16">Размещение вакансий и поиск сотрудников по резюме</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+{% endblock %}

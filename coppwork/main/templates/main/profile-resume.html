@@ -1,0 +1,90 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+{{resume.specializations}}
+{% endblock %}
+
+
+{% block content %}
+<div class="container color-white p-5">
+    <div class="d-flex align-items-center justify-content-between">
+        <div>
+            <span class="txt-blue font-size-24">Ваше резюме</span>
+        </div>
+        <div>
+            <a href="{% url 'profile-edit-resume' resume.id %}" class="txt-cyan border-bottom-blue me-3">Редактировать</a>
+            <a href="{% url 'profile-resume-delete' resume.id %}" class="txt-grey-hover">Удалить</a>
+        </div>
+    </div>
+    <div class="row mt-5 pb-5">
+        <div class="col-7 txt-blue font-size-24">
+            <div>
+                <span class="txt-blue font-size-42">{{resume.specializations}}</span>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-6">
+                    <span>Заработная плата:</span>
+                </div>
+                <div class="col-6">
+                    <span class="txt-grey font-size-20">{{resume.salary|floatformat:"g" }} ₽</span>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-6">
+                    <span>Тип занятности:</span>
+                </div>
+                <div class="col-6">
+                    <span class="txt-grey font-size-20">{{resume.get_type_employment_display}}</span>
+                </div>
+             </div>
+
+            <div class="row mt-5">
+                <div class="col-6">
+                    <span>График работы:</span>
+                </div>
+                <div class="col-6">
+                    <span class="txt-grey font-size-20">{{resume.get_work_schedule_display}}</span>
+                </div>
+             </div>
+
+            <div class="row mt-5">
+                <div class="col-6">
+                    <span>Опыт работы:</span>
+                </div>
+                <div class="col-6">
+                    <span class="txt-grey font-size-20">{{resume.get_work_experience_display}}</span>
+                </div>
+             </div>
+
+            <div class="row mt-5">
+                <div class="col-6">
+                    <span>Образование:</span>
+                </div>
+                <div class="col-6">
+                    <span class="txt-grey font-size-20">{{resume.get_education_display}}</span>
+                </div>
+             </div>
+
+            <div class="row mt-5">
+                <div class="col-6">
+                    <span>Подробное резюме:</span>
+                </div>
+                <div class="col-6 d-flex align-items-center">
+                    {% if resume.file %}
+                        <a href="../{{resume.file}}" target="_blank" class="txt-grey-hover border-bottom-blue font-size-20">Открыть резюме</a>
+                        <a href=""><img src="{% static 'main/img/svg/next-link.svg' %}" alt=""></a>
+                    {% else %}
+                        <span class="txt-grey font-size-20">Отсутствует</span>
+                    {% endif %}
+                </div>
+             </div>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}

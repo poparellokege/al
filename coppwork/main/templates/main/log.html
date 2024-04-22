@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Авторизация
+{% endblock %}
+
+
+{% block content %}
+<div class="container color-white p-5 h-70-vh">
+    <div>
+        <div class="mb-5 pt-4">
+            <span class="txt-blue font-size-32">Выберите роль</span>
+        </div>
+        <div class="pt-3 row">
+            <div class="col-3">
+                <a href="{% url 'login' %}" class="button mb-3">Пользователь</a>
+            </div>
+            <div class="col-3">
+                <a href="" class="button mb-3">Компания</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

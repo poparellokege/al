@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=cyrillic');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+}
+body{
+    background-color: #e8f2f3;
+    font-weight: 600;
+	font-family: Montserrat, sans-serif;
+}
+a{
+    text-decoration: none;
+}
+.custom-checkbox{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.custom-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+.custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #D9D9D9;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+.custom-checkbox:checked+label::before {
+    border: 3px #70C6D1 solid;
+}
+/* стили при наведении курсора на checkbox */
+.custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
+    border-color: #b3d7ff;
+}
+/* стили для чекбокса, находящегося в фокусе */
+.custom-checkbox:focus+label::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+/* стили для чекбокса, находящегося в состоянии disabled */
+.custom-checkbox:disabled+label::before {
+    background-color: #D9D9D9;
+}
+.custom-radio{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.custom-radio+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+.custom-radio+label::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+  /* стили при наведении курсора на радио */
+.custom-radio:not(:disabled):not(:checked)+label:hover::before {
+    border-color: #70C6D1;
+}
+  /* стили для активной радиокнопки (при нажатии на неё) */
+.custom-radio:not(:disabled):active+label::before {
+    border-color: #70C6D1;
+}
+  /* стили для радиокнопки, находящейся в фокусе */
+.custom-radio:focus+label::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+  /* стили для радиокнопки, находящейся в фокусе и не находящейся в состоянии checked */
+.custom-radio:focus:not(:checked)+label::before {
+    border-color: #80bdff;
+}
+  /* стили для радиокнопки, находящейся в состоянии checked */
+.custom-radio:checked+label::before {
+    border: 3px #70C6D1 solid;
+}
+  /* стили для радиокнопки, находящейся в состоянии disabled */
+.custom-radio:disabled+label::before {
+    background-color: #e9ecef;
+}
+.custom-input input{
+    height: 50px;
+    width: 80%;
+    background-color: #E8F2F3;
+    color: #00334e;
+    border: none;
+    padding: 10px;
+    border-bottom: 1px #70C6D1 solid;
+    outline:none;
+}
+.custom-input textarea{
+    width: 80%;
+    background-color: #E8F2F3;
+    color: #00334e;
+    border: none;
+    padding: 10px;
+    border-bottom: 1px #70C6D1 solid;
+    outline:none;
+}
+.custom-input select{
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 80%;
+    background-color: #E8F2F3;
+    color: #00334e;
+    border: none;
+    padding: 10px;
+    border-bottom: 1px #70C6D1 solid;
+    outline:none;
+}
+.custom-input select:not([multiple]){
+    padding-right: 1.2em;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 0.3em) 0.4em;
+    background-size: 2em auto;
+    background-image: url("../img/svg/drop-arrow.svg");
+}
+
+
+header{
+    font-size: 14px;
+}
+header a:hover{
+    color: #70C6D1;
+    transition: color 0.5s;
+}
+header .button:hover{
+    background-color: #47afb6;
+    color: #00334e !important;
+    transition: background-color 300ms;
+}
+.button{
+    background-color: #70C6D1;
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: none;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 300ms;
+}
+.button:hover{
+    background-color: #47afb6;
+}
+
+
+.w-33{
+    width: 33%;
+}
+.w-80{
+    width: 80%;
+}
+.h-70-vh{
+    height: 70vh;
+}
+.txt-blue, .txt-blue-hover{
+    color: #00334e;
+    transition: color 300ms;
+}
+.txt-blue-hover:hover{
+    color: #70C6D1;
+    transition: color 300ms;
+}
+.txt-cyan{
+    color: #ffde71;
+}
+.txt-white, .txt-white-hover{
+    color: #ffffff;
+    transition: color 300ms;
+}
+.txt-white-hover:hover{
+    color: #70C6D1;
+    transition: color 300ms;
+}
+.txt-grey, .txt-grey-hover{
+    color: #787878;
+    transition: color 300ms;
+}
+.txt-grey-hover:hover{
+    color: #70C6D1;
+    transition: color 300ms;
+}
+.color-blue{
+    background-color: rgba(0, 0, 0, 0.9);
+}
+.color-white{
+    background-color: #ffffff;
+}
+.color-bg{
+    background-color: rgba(244, 46, 20, 0.9);
+}
+.font-size-16{
+    font-size: 16px;
+}
+.font-size-20{
+    font-size: 20px;
+}
+.font-size-24{
+    font-size: 24px;
+}
+.font-size-28{
+    font-size: 28px;
+}
+.font-size-32{
+    font-size: 32px;
+}
+.font-size-36{
+    font-size: 36px;
+}
+.font-size-42{
+    font-size: 42px;
+}
+.border-bottom-blue{
+    border-bottom: 1px #ffee67 solid;
+}
+
+.header-logo{
+    height: 50px;
+}
+.search-header{
+    font-size: 24px;
+}
+.footer-logo{
+    height: 150px;
+}
+.footer-social-img{
+    height: 36px;
+}
+.content{
+    display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+.main{
+    flex: 1 0 auto;
+}
+footer {
+    flex: 0 0 auto;
+}
+.search-input{
+    height: 50px;
+    width: 80%;
+    background-color: #E8F2F3;
+    color: #00334e;
+    border: none;
+    padding: 10px;
+    border-bottom: 1px #70C6D1 solid;
+    outline:none;
+}
+.card-img{
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.about-vacancy-img{
+    height: 320px;
+    width: 100%;
+    object-fit: cover;
+}

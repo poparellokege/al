@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Удалить резюме
+{% endblock %}
+
+
+{% block content %}
+<div class="container color-white p-5 h-70-vh">
+    <div>
+        <div class="mb-5 pt-4">
+            <span class="txt-blue font-size-32">Удалить резюме</span>
+        </div>
+        <div class="pt-3">
+            <form method="post">
+                {% csrf_token %}
+                <div class="row align-items-center mt-5 ps-3">
+                    <input type="submit" class="button col-1" value="Удалить">
+                    <a href="{% url 'profile-resume' resume.id %}" class="txt-cyan ms-3 col-1">Назад</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

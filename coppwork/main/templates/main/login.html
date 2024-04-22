@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Авторизация
+{% endblock %}
+
+
+{% block content %}
+<div class="container color-white p-5 h-70-vh">
+    <div>
+        <div class="mb-5 pt-4">
+            <span class="txt-blue font-size-32">Вход</span>
+        </div>
+        <div class="pt-3">
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div class="row align-items-center">
+                    <label for="username" class="col-1 txt-blue font-size-24 me-4">Логин:</label>
+                    <div class="col-7">
+                        <input type="text" id="username" name="username" class="search-input col-4">
+                    </div>
+                </div>
+                <div class="row mt-4 align-items-center">
+                    <label for="password" class="col-1 txt-blue font-size-24 me-4">Пароль:</label>
+                    <div class="col-7">
+                        <input type="password" id="password" name="password" class="search-input col-4">
+                    </div>
+                </div>
+                <div class="row align-items-center mt-5 ps-3">
+                    <input type="submit" class="button bg-danger col-1" value="Войти">
+                    <a href="{% url 'reg' %}" class="txt-cyan ms-3 col-1">Регистрация</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

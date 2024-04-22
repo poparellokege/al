@@ -1,0 +1,91 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Изменить данные пользователя
+{% endblock %}
+
+
+{% block content %}
+<div class="container color-white p-5">
+    <div>
+        <div class="mb-5 pt-4">
+            <span class="txt-blue font-size-32">Изменение личных данных</span>
+        </div>
+        <div class="pt-3">
+            <form action="{% url 'profile-edit-worker' user.id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row align-items-center mt-4">
+                    <div class="txt-blue font-size-20 col-2 mt-3">
+                        {{ form.name.label_tag }}
+                    </div>
+                    <div class="col-7 custom-input">
+                        {{ form.name }}
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-4">
+                    <div class="txt-blue font-size-20 col-2 mt-3">
+                        {{ form.gender.label_tag }}
+                    </div>
+                    <div class="col-7 custom-input">
+                        {{ form.gender }}
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-4">
+                    <div class="txt-blue font-size-20 col-2 mt-3">
+                        {{ form.age.label_tag }}
+                    </div>
+                    <div class="col-7 custom-input">
+                        {{ form.age }}
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-4">
+                    <div class="txt-blue font-size-20 col-2 mt-3">
+                        {{ form.phone.label_tag }}
+                    </div>
+                    <div class="col-7 custom-input">
+                        <input type="tel" name="phone" id="id_phone" placeholder="+7(___)___-__-__" data-mask="+7(000)000-00-00" maxlength="18" value="{{worker.phone}}">
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-4">
+                    <div class="txt-blue font-size-20 col-2 mt-3">
+                        {{ form.address.label_tag }}
+                    </div>
+                    <div class="col-7 custom-input">
+                        {{ form.address }}
+                    </div>
+                </div>
+
+                <div class="row align-items-center mt-4">
+                    <div class="txt-blue font-size-20 col-2 mt-3">
+                        Изображение профиля
+                    </div>
+                    <div class="col-7 custom-input">
+                        {% if worker.avatar %}
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="avatar-clear" id="avatar-clear_id" class="custom-checkbox">
+                            <label for="avatar-clear_id" class="txt-blue">Убрать</label>
+                        </div>
+                        {% endif %}
+                        <input type="file" name="avatar" id="avatar_id" accept="image/*">
+                    </div>
+                </div>
+
+
+                <div class="row align-items-center mt-5 ps-3">
+                    <input type="submit" class="button col-2" value="Изменить">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+{% endblock %}

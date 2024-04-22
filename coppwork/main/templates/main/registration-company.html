@@ -1,0 +1,86 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Регистрация компании
+{% endblock %}
+
+
+{% block content %}
+<div class="container color-white p-5">
+    <div>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        <div class="mb-5 pt-4">
+            <span class="txt-blue font-size-32">Регистрация</span>
+        </div>
+        <div class="pt-3">
+            <form action="{% url 'registration-company' %}" method="post">
+                {% csrf_token %}
+                <div class="row align-items-center">
+                    <div class="txt-blue font-size-20 col-2 mt-3">
+                        <label>Название:</label>
+                    </div>
+                    <div class="col-7 custom-input">
+                         {{ form.name }}
+                    </div>
+                </div>
+                <div class="row align-items-start mt-4">
+                    <div class="txt-blue font-size-20 col-2 mt-3">
+                        {{ form.description.label_tag }}
+                    </div>
+                    <div class="col-7 custom-input">
+                        {{ form.description }}
+                    </div>
+                </div>
+                <div class="row align-items-center mt-4">
+                    <div class="txt-blue font-size-20 col-2 mt-3">
+                        {{ form.phone.label_tag }}
+                    </div>
+                    <div class="col-7 custom-input">
+                        {{ form.phone }}
+                    </div>
+                </div>
+                <div class="row align-items-center mt-4">
+                    <div class="txt-blue font-size-20 col-2 mt-3">
+                        <label>Email:</label>
+                    </div>
+                    <div class="col-7 custom-input">
+                        {{ form.email }}
+                    </div>
+                </div>
+                <div class="row align-items-center mt-4">
+                    <div class="txt-blue font-size-20 col-2 mt-3">
+                        <label>Логин:</label>
+                    </div>
+                    <div class="col-7 custom-input">
+                        {{ form.username }}
+                    </div>
+                </div>
+                <div class="row align-items-center mt-4">
+                    <div class="txt-blue font-size-20 col-2 mt-3">
+                        {{ form.password.label_tag }}
+                    </div>
+                    <div class="col-7 custom-input">
+                         {{ form.password }}
+                    </div>
+                </div>
+                <div class="row align-items-center mt-5 ps-3">
+                    <input type="submit" class="button col-2" value="Зарегистрироваться">
+                    <a href="{% url 'login' %}" class="txt-cyan ms-3 col-1">Войти</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+{% endblock %}

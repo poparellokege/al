@@ -1,0 +1,110 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Личный кабинет
+{% endblock %}
+
+
+{% block content %}
+<div class="container color-white p-5">
+    <div class="d-flex align-items-center justify-content-between">
+        <div>
+            <span class="txt-blue font-size-24">Личный кабинет</span>
+        </div>
+        <div>
+            <a href="{% url 'profile-edit-worker' worker.id %}" class="txt-cyan border-bottom-blue">Редактировать</a>
+        </div>
+    </div>
+    <div class="row mt-5 pb-5">
+        <div class="col-7 txt-blue font-size-24">
+            <div>
+                <span class="txt-blue font-size-42">{{worker.name}}</span>
+            </div>
+            <div class="mt-3">
+                <span class="txt-grey font-size-24">{{worker.get_gender_display}},
+                    {% if worker.age == 10 or worker.age == 11 or worker.age == 12 or worker.age == 13 or worker.age == 14%}
+                        {{worker.age}} лет
+                    {% elif res == 1 %}
+                        {{worker.age}} год
+                    {% elif res == 2 or res == 3 or res == 4 %}
+                        {{worker.age}} года
+                    {% else %}
+                        {{worker.age}} лет
+                    {% endif %}
+                </span>
+            </div>
+            <div class="col-6 mt-5">
+                <span>Ваши резюме:</span>
+            </div>
+            <div class="row mt-3">
+                {% if resume %}
+                    {% for el in resume %}
+                    <div class="col-6">
+                        <div class="color-bg p-3 mb-4">
+                            <div class="mt-3">
+                                <a href="{% url 'profile-resume' el.id %}" class="txt-blue-hover font-size-28">{{el.specializations}}</a>
+                            </div>
+                            <div class="txt-grey font-size-20">
+                                <span>{{el.salary|floatformat:"g"}} ₽</span>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <a href="{% url 'profile-resume' el.id %}"><img src="{% static 'main/img/svg/next-link.svg' %}" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="col-12">
+                        <div class="mt-3">
+                            <span class="txt-grey">У вас пока нет резюме</span>
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+            <div class="col-4">
+                <div>
+                    <a href="{% url 'add-resume' worker.id %}" class="button font-size-20">Добавить</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-5">
+            {% if worker.avatar %}
+                <img src="../{{worker.avatar}}" alt="" class="about-vacancy-img">
+            {% else %}
+                <img src="../images/users/def/def.jpg" alt="" class="about-vacancy-img">
+            {% endif %}
+            <div class="mt-5">
+                <div>
+                    <span class="txt-blue font-size-24">Контактные данные:</span>
+                </div>
+                <div class="mt-4">
+                    <div class="d-flex">
+                        <img src="{% static 'main/img/svg/phone.svg' %}" class="me-2">
+                        <a href="tel:{{worker.phone}}" class="txt-grey-hover font-size-20">{{worker.phone}}</a>
+                    </div>
+                    <div class="d-flex mt-4">
+                        <img src="{% static 'main/img/svg/email.svg' %}" class="me-2">
+                        <a href="mailto:{{worker.email}}" class="txt-grey-hover font-size-20">{{worker.email}}</a>
+                    </div>
+                    <div class="d-flex mt-4">
+                        <img src="{% static 'main/img/svg/location.svg' %}" class="me-2">
+                        <span class="txt-grey font-size-20">
+                            {% if worker.address %}
+                                {{worker.address}}
+                            {% else %}
+                                Не указано
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}
